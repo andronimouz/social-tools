@@ -25,8 +25,8 @@ Ejemplo de uso: Esta función recibe como parámetro el ID único de la página 
 
 ```php
 <?php
-require_once('socialtools.class.php');
-echo SocialTools::getPagesLikes("1843788915845323");
+  require_once('socialtools.class.php');
+  echo SocialTools::getPagesLikes("1843788915845323");
 ?>
 ```
 El código anterior devuelve:  `1721`
@@ -37,8 +37,8 @@ Ejemplo de uso: Esta función recibe como parámetro el usuario de Twitter cual 
 
 ```php
 <?php
-require_once('socialtools.class.php');
-echo SocialTools::getTwitterFollowersCount("IFGIOVANNI");
+  require_once('socialtools.class.php');
+  echo SocialTools::getTwitterFollowersCount("IFGIOVANNI");
 ?>
 ```
 El código anterior devuelve:  `31`
@@ -49,8 +49,8 @@ Ejemplo de uso: Esta función recibe como parámetro el ID del canal de Youtube 
 
 ```php
 <?php
-require_once('socialtools.class.php');
-echo SocialTools::getYouTubeSuscribersCount("UC2CCiLDwDfnr_SgF2CRdK5g");
+  require_once('socialtools.class.php');
+  echo SocialTools::getYouTubeSuscribersCount("UC2CCiLDwDfnr_SgF2CRdK5g");
 ?>
 ```
 El código anterior devuelve:  `444`
