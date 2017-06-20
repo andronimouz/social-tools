@@ -1,4 +1,9 @@
 # Social Tools
+@IFGIOVANNI en [Twitter](http://twitter.com/ifgiovanni) |
+[Facebook](http://facebook.com/ifgiovanni) |
+[Instagram](http://instagram.com/ifgiovanni) |
+[YouTube](http://youtube.com/ifgiovanni) 
+
 SocialTools es una pequeña clase de PHP la cual facilitará algunas acciones a los desarrolladores web.
 
 La idea es facilitar el acceso a funciones que quizá pueden ser complicadas para algunos.
