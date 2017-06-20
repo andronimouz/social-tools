@@ -59,3 +59,6 @@ Ejemplo de uso: Esta función recibe como parámetro el ID del canal de Youtube 
 ?>
 ```
 El código anterior devuelve:  `444`
+
+--------
+#### Estoy trabajando en más funciones, iré actualizando poco a poco la clase. Saludos.
