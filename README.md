@@ -61,4 +61,14 @@ Ejemplo de uso: Esta función recibe como parámetro el ID del canal de Youtube 
 El código anterior devuelve:  `444`
 
 --------
+
+### Listado de funciones:
+- getPagesLikes
+- getInstagramFollowedByCount
+- getInstagramFollowsCount
+- getInstagramProfilePicture
+- getFBShareCount
+- getTwitterFollowersCount
+- getYouTubeSuscribersCount
+
 #### Estoy trabajando en más funciones, iré actualizando poco a poco la clase. Saludos.
