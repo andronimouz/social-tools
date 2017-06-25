@@ -42,7 +42,110 @@ Class SocialTools
 			$obj = json_decode($result);
 			return $obj->fan_count;
 		}
+	}
+
+	/*
+		#ES: Devuelve el numero de veces que se ha compartido una url dentro de Facebook.
+		#EN: Returns the number of times a url has been shared within Facebook.
+	*/
+
+	public function getFBShareCount($url) {
+		if(self::CURL_PREFERED && self::isCurl()){
+			$ch = @curl_init();
+			@curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			@curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			@curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/?id='.$url);
+			$result = @curl_exec($ch);
+			curl_close($ch);
+			$obj = json_decode($result);
+			return $obj->share->share_count;
+		}else{
+			$result = file_get_contents('https://graph.facebook.com/?id='.$url);
+			$obj = json_decode($result);
+			return $obj->share->share_count;
+		}
 		
+	}
+
+	/*
+		#ES: Devuelve el número de personas que sigue una cuenta de Instagram.
+		#EN: Returns the number of people following an Instagram account.
+	*/
+
+	public function getInstagramFollowsCount($user) {
+		if(self::CURL_PREFERED && self::isCurl()){
+			$ch = @curl_init();
+			@curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			@curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			@curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/$user/?__a=1");
+			$result = @curl_exec($ch);
+			curl_close($ch);
+			$obj = json_decode($result);
+			return $obj->user->follows->count;;
+		}else{
+			$result = file_get_contents("https://www.instagram.com/$user/?__a=1");
+			if ($result !== false) {
+			    $data = json_decode($response);
+			    if ($data !== null) {
+			        return $data->user->follows->count;
+			    }
+			}
+		}
+		return 0;
+	}
+
+	/*
+		#ES: Devuelve el número de seguidores de una cuenta de Instagram.
+		#EN: Returns the number of followers in an Instagram account.
+	*/
+
+	public function getInstagramFollowedByCount($user) {
+		if(self::CURL_PREFERED && self::isCurl()){
+			$ch = @curl_init();
+			@curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			@curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			@curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/$user/?__a=1");
+			$result = @curl_exec($ch);
+			curl_close($ch);
+			$obj = json_decode($result);
+			return $obj->user->followed_by->count;;
+		}else{
+			$result = file_get_contents("https://www.instagram.com/$user/?__a=1");
+			if ($result !== false) {
+			    $data = json_decode($response);
+			    if ($data !== null) {
+			        return $data->user->followed_by->count;
+			    }
+			}
+		}
+		return 0;
+	}
+
+	/*
+		#ES: Devuelve la url de la foto de perfil de Instagram.
+		#EN: Returns the url of the Instagram profile photo.
+	*/
+
+	public function getInstagramProfilePicture($user) {
+		if(self::CURL_PREFERED && self::isCurl()){
+			$ch = @curl_init();
+			@curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			@curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			@curl_setopt($ch, CURLOPT_URL, "https://www.instagram.com/$user/?__a=1");
+			$result = @curl_exec($ch);
+			curl_close($ch);
+			$obj = json_decode($result);
+			return $obj->user->profile_pic_url_hd;
+		}else{
+			$result = file_get_contents("https://www.instagram.com/$user/?__a=1");
+			if ($result !== false) {
+			    $data = json_decode($response);
+			    if ($data !== null) {
+			        return $data->user->profile_pic_url_hd;
+			    }
+			}
+		}
+		return 0;
 	}
 
 	/*
